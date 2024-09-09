@@ -4,6 +4,7 @@ body {
     padding: 0;
     background-color: #1a1a1a;
     color: #fff;
+    display: flex;
 }
 
 .container {
@@ -137,8 +138,27 @@ ul li {
     box-sizing: border-box;
 }
 
+.login-buttons-only button {
+    padding: 10px;
+    margin: 8px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    background-color: #85a283;
+    color: white;
+    cursor: pointer;
+    width: 90%;
+    box-sizing: border-box;
+}
+
 .login-buttons button:hover {
     background-color: #65a268;
+}
+
+input[type="text"].error,
+input[type="tel"].error {
+    border: 2px solid red;
+    background-color: #ffcccc;
 }
 
 @media (min-width: 768px) {

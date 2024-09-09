@@ -5,53 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farmasi</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}?v=1.0">
-    <script>
-        // Функція для валідації номера телефону
-        function validatePhoneNumber(phone) {
-            const phonePattern = /^\+?\d{10,12}$/;
-            return phonePattern.test(phone);
-        }
-
-        // Функція для валідації імені та прізвища (два слова)
-        function validateFullName(name) {
-            const words = name.trim().split(/\s+/);  // Розділяє по пробілах
-            return words.length === 2;  // Повертає true, якщо введено рівно 2 слова
-        }
-
-        // Функція для перевірки перед відправкою форми
-        function validateForm(event) {
-            const nameInput = document.querySelector('input[name="name"]');
-            const phoneInput = document.querySelector('input[name="phone"]');
-
-            const name = nameInput.value.trim();
-            const phone = phoneInput.value.trim();
-
-            let isValid = true;
-
-            // Перевірка імені та прізвища
-            if (!validateFullName(name)) {
-                alert("Будь ласка, введіть своє прізвище та ім'я (2 слова).");
-                isValid = false;
-            }
-
-            // Перевірка номера телефону
-            if (!validatePhoneNumber(phone)) {
-                alert("Номер телефону повинен містити тільки цифри, 10 або 12 символів (з плюсом на початку).");
-                isValid = false;
-            }
-
-            // Якщо форма не валідна, зупиняємо відправку
-            if (!isValid) {
-                event.preventDefault();
-            }
-        }
-
-        // Додаємо обробник події до форми
-        document.addEventListener('DOMContentLoaded', function () {
-            const form = document.querySelector('form');
-            form.addEventListener('submit', validateForm);
-        });
-    </script>
 </head>
 <body>
     <div class="container">
@@ -80,15 +33,17 @@
         <p class="grey-p">В кінці зустрічі можна буде отримати <span class="highlight-green">знижку 25%</span> на всю продукцію компанії Farmasi абсолютно безкоштовно.</p>
         <h3>ПОЧАТОК МАЙСТЕР-КЛАСУ 14.09 о 18:00</h3>
         <p class="default-p">Заповніть форму, щоб мати модливість отримати <span class="highlight-green">подарунки</span></p>
-        <form action="/" method="POST">
+        <form action="/" method="POST" id="registrationForm">
             <div class="login-form">
-                <input type="text" name="name" placeholder="Прізвище та ім'я">
-                <input type="tel" name="phone" placeholder="Номер телефону">
+                <input type="text" name="name" placeholder="Прізвище та ім'я" id="name">
+                <input type="tel" name="phone" placeholder="Номер телефону" id="phone">
                 <div class="login-buttons">
                     <button type="submit">ПІДТВЕРДИТИ</button>
                 </div>
             </div>
         </form>
     </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

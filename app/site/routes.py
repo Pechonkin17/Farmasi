@@ -25,6 +25,13 @@ def index():
             finally:
                 loop.close()
 
-            return redirect(url_for('main.index'))
+            return redirect(url_for('main.thank_you'))
 
     return render_template('index.html')
+
+@main.route('/thank-you', methods=['GET', 'POST'])
+def thank_you():
+    if request.method == 'POST':
+        return redirect(url_for('main.index'))
+
+    return render_template('subscription.html')
