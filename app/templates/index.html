@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmasi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}?v=1.0">
+</head>
+<body>
+    <div class="container">
+        <h1>ЗАПРОШЕННЯ</h1>
+        <h2>НА ПРЕЗЕНТАЦІЮ МОЖЛИВОСТЕЙ</h2>
+        <h1 class="highlight">FARMASI</h1>
+        <p class="small-p">Майстер-клас є повністю безкоштовним.
+            <br>Єдине, що Ви вкладаєте - це свій час та білет на маршрутку, на якій Ви до нього доїдете.</p>
+        <p class="green-p">Чому вигідно потрапити на презентацію:</p>
+        <ul>
+            <li>- Ознайомлення з продукцією
+                <span class="highlight-green">топ 1</span>
+                Туреччини та
+                <span class="highlight-green">топ 3</span>
+                Європи від 2018 року по даний час</li>
+            <li>- Найтиповіші помилки, які допускають майже всі дівчата при догляді за собою</li>
+            <li>- Дегустація коктейлів</li>
+            <li>- Презентація новинок компанії</li>
+            <li>- Розіграш подарунків між усіма учасниками</li>
+            <li>- Тренди та тенденції в сучасному макіяжі</li>
+            <li>- Можливості доходу з Farmasi</li>
+            <li>- Сучасні інструменти правильної побудови бізнесу</li>
+            <li>- Як за 4 місяці РЕАЛЬНО вийти на дохід в 30 000 грн</li>
+        </ul>
+        <em class="small-p">Grand Hotel Lviv - Проспект Свободи 13</em>
+        <p class="grey-p">В кінці зустрічі можна буде отримати <span class="highlight-green">знижку 25%</span> на всю продукцію компанії Farmasi абсолютно безкоштовно.</p>
+        <h3>ПОЧАТОК МАЙСТЕР-КЛАСУ 14.09 о 18:00</h3>
+        <p class="default-p">Заповніть форму, щоб мати модливість отримати <span class="highlight-green">подарунки</span></p>
+        <form action="/" method="POST">
+            <div class="login-form">
+                <input type="text" name="name" placeholder="Прізвище та ім'я">
+                <input type="tel" name="phone" placeholder="Номер телефону">
+                <div class="login-buttons">
+                    <button type="submit">ПІДТВЕРДИТИ</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
