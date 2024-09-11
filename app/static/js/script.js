@@ -1,6 +1,6 @@
 // Функція для валідації номера телефону
 function validatePhoneNumber(phone) {
-    // Якщо номер з 12 цифр, він повинен починатися зі знака '+', після якого 11 цифр
+    // Якщо номер з 12 цифр, він повинен починатися зі знака '+', після якого 12 цифр
     if (phone.length === 13 && phone.startsWith('+')) {
         const phonePattern = /^\+\d{12}$/;
         return phonePattern.test(phone);
@@ -14,9 +14,10 @@ function validatePhoneNumber(phone) {
 }
 
 // Функція для валідації імені та прізвища (два слова)
+
 function validateFullName(name) {
     const words = name.trim().split(/\s+/);  // Розділяє по пробілах
-    return words.length === 2;  // Повертає true, якщо введено рівно 2 слова
+    return words.length === 2 && words[0].length > 2 && words[1].length > 2;
 }
 
 // Функція для перевірки перед відправкою форми

@@ -12,13 +12,6 @@ logger = logging.getLogger(__name__)
 
 bot = None
 
-async def set_commands(bot: Bot) -> None:
-    commands = [
-        {"command": "/start", "description": "Start the bot"},
-        {"command": "/help", "description": "Get help"}
-    ]
-    await bot.set_my_commands(commands)
-
 async def main() -> None:
     global bot
     TOKEN = getenv("BOT_TOKEN")
@@ -28,8 +21,6 @@ async def main() -> None:
 
     bot = Bot(TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     dp = Dispatcher()
-
-    await set_commands(bot)
 
     logger.info("Starting bot...")
 

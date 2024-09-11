@@ -176,6 +176,11 @@ input[type="tel"].error {
     border: 2px solid red;
     background-color: #ffcccc;
 }
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
 
 @media (min-width: 768px) {
     .login-form {

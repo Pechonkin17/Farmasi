@@ -37,6 +37,9 @@
             <div class="login-form">
                 <input type="text" name="name" placeholder="Прізвище та ім'я">
                 <input type="tel" name="phone" placeholder="Номер телефону">
+                {% if error_message %}
+                    <p class="error-message">{{ error_message }}</p>
+                {% endif %}
                 <div class="login-buttons">
                     <button type="submit">ПІДТВЕРДИТИ</button>
                 </div>
