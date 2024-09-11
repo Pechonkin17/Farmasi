@@ -138,7 +138,11 @@ ul li {
     box-sizing: border-box;
 }
 
-.login-buttons-only button {
+.login-buttons button:hover {
+    background-color: #65a268;
+}
+
+.login-buttons-subscription button {
     padding: 10px;
     margin: 8px;
     font-size: 1.2em;
@@ -151,8 +155,20 @@ ul li {
     box-sizing: border-box;
 }
 
-.login-buttons button:hover {
-    background-color: #65a268;
+.login-form-subscription {
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-bottom: 15px;
+    border: 2px solid white;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    gap: 10px;
+    background-color: #1f1f1f;
+    box-sizing: border-box;
 }
 
 input[type="text"].error,

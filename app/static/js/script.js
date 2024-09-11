@@ -1,7 +1,16 @@
 // Функція для валідації номера телефону
 function validatePhoneNumber(phone) {
-    const phonePattern = /^\+?\d{10,12}$/;
-    return phonePattern.test(phone);
+    // Якщо номер з 12 цифр, він повинен починатися зі знака '+', після якого 11 цифр
+    if (phone.length === 13 && phone.startsWith('+')) {
+        const phonePattern = /^\+\d{12}$/;
+        return phonePattern.test(phone);
+    }
+    // Якщо номер з 10 цифр, не допускається знак '+'
+    else if (phone.length === 10) {
+        const phonePattern = /^\d{10}$/;
+        return phonePattern.test(phone);
+    }
+    return false;  // Якщо не відповідає жодному з критеріїв
 }
 
 // Функція для валідації імені та прізвища (два слова)
@@ -12,42 +21,42 @@ function validateFullName(name) {
 
 // Функція для перевірки перед відправкою форми
 function validateForm(event) {
-    const nameInput = document.getElementById('name');
-    const phoneInput = document.getElementById('phone');
+    const nameInput = document.querySelector('input[name="name"]');
+    const phoneInput = document.querySelector('input[name="phone"]');
 
     const name = nameInput.value.trim();
     const phone = phoneInput.value.trim();
 
     let isValid = true;
 
-    // Очистити всі помилки та повернути поля до нормального стану
-    nameInput.style.borderColor = '';
+    // Очищаємо помилки перед новою перевіркою
+    nameInput.classList.remove('error');
+    phoneInput.classList.remove('error');
     nameInput.style.backgroundColor = '';
-    phoneInput.style.borderColor = '';
     phoneInput.style.backgroundColor = '';
 
     // Перевірка імені та прізвища
     if (!validateFullName(name)) {
-        nameInput.style.borderColor = 'red';  // Підсвітити поле червоним
-        nameInput.style.backgroundColor = '#ffcccc';  // Зробити фон червоним
+        nameInput.style.backgroundColor = '#ffcccc';  // Підсвітити поле червоним фоном
         isValid = false;
     }
 
     // Перевірка номера телефону
     if (!validatePhoneNumber(phone)) {
-        phoneInput.style.borderColor = 'red';  // Підсвітити поле червоним
-        phoneInput.style.backgroundColor = '#ffcccc';  // Зробити фон червоним
+        phoneInput.style.backgroundColor = '#ffcccc';  // Підсвітити поле червоним фоном
         isValid = false;
     }
 
-    // Якщо форма не валідна, зупиняємо відправку
-    if (!isValid) {
-        event.preventDefault();
+    // Якщо форма валідна, перенаправляємо користувача на іншу сторінку
+    if (isValid) {
+        window.location.href = "/success";  // Вказати шлях до сторінки для успішної валідації
+    } else {
+        event.preventDefault();  // Зупиняємо відправку форми, якщо вона не валідна
     }
 }
 
 // Додаємо обробник події до форми
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('registrationForm');
+    const form = document.querySelector('form');
     form.addEventListener('submit', validateForm);
 });

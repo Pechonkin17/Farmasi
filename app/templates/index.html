@@ -5,53 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farmasi</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}?v=1.0">
-    <script>
-        // Функція для валідації номера телефону
-        function validatePhoneNumber(phone) {
-            const phonePattern = /^\+?\d{10,12}$/;
-            return phonePattern.test(phone);
-        }
-
-        // Функція для валідації імені та прізвища (два слова)
-        function validateFullName(name) {
-            const words = name.trim().split(/\s+/);  // Розділяє по пробілах
-            return words.length === 2;  // Повертає true, якщо введено рівно 2 слова
-        }
-
-        // Функція для перевірки перед відправкою форми
-        function validateForm(event) {
-            const nameInput = document.querySelector('input[name="name"]');
-            const phoneInput = document.querySelector('input[name="phone"]');
-
-            const name = nameInput.value.trim();
-            const phone = phoneInput.value.trim();
-
-            let isValid = true;
-
-            // Перевірка імені та прізвища
-            if (!validateFullName(name)) {
-                alert("Будь ласка, введіть своє прізвище та ім'я (2 слова).");
-                isValid = false;
-            }
-
-            // Перевірка номера телефону
-            if (!validatePhoneNumber(phone)) {
-                alert("Номер телефону повинен містити тільки цифри, 10 або 12 символів (з плюсом на початку).");
-                isValid = false;
-            }
-
-            // Якщо форма не валідна, зупиняємо відправку
-            if (!isValid) {
-                event.preventDefault();
-            }
-        }
-
-        // Додаємо обробник події до форми
-        document.addEventListener('DOMContentLoaded', function () {
-            const form = document.querySelector('form');
-            form.addEventListener('submit', validateForm);
-        });
-    </script>
 </head>
 <body>
     <div class="container">
@@ -90,5 +43,6 @@
             </div>
         </form>
     </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
