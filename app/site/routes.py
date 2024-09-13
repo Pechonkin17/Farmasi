@@ -37,6 +37,6 @@ def index():
 @main.route('/thank-you', methods=['GET', 'POST'])
 def thank_you():
     if request.method == 'POST':
-        return redirect("https://web.telegram.org/a/#6716079548")
+        return redirect("https://t.me/Farmasi_official_bot")
 
     return render_template('subscription.html')

@@ -16,10 +16,6 @@ logger = logging.getLogger(__name__)
 bot = None
 router = Router()
 
-@router.message(CommandStart())
-async def command_start_handler(message: Message) -> None:
-    await message.answer(f"{hbold(message.from_user.full_name)}, вітаємо Вас у боті!")
-
 async def send_registration_notification(message: str, bot_instance: Bot) -> None:
     chat_id = getenv("CHAT_ID")
     if not chat_id:
