@@ -6,9 +6,10 @@ Laptop:
 
 Phone:
 
-![image](https://github.com/user-attachments/assets/787bd4ab-2d41-472d-9c16-d653ad642596)
+![image](https://github.com/user-attachments/assets/c595adc1-6bcf-494a-bbb9-5c2ba856bc2e)
 
-![image](https://github.com/user-attachments/assets/0f8555ba-60b1-493e-a1b4-4051f88cd883)
+![image](https://github.com/user-attachments/assets/f82fe807-0367-420b-b0d8-54cd43ebdc45)
+
 
 Програма перевіряє чи користувач ввів у поля:
 1. 2 слова
@@ -28,3 +29,9 @@ Phone:
 Якщо користувач натисне кнопку: 'Підписатись на розсилку', то його переадресує у телеграм бота:
 
 ![image](https://github.com/user-attachments/assets/c663fa75-6b5a-4b55-a4d9-bda0ae63d8f6)
+
+
+Також повідомлять адміністратора в телеграмі, що користувач зареєструвався: 
+
+![image](https://github.com/user-attachments/assets/9c198d85-5828-4af2-a061-cdec8e2222d0)
+
