@@ -35,13 +35,16 @@
         <p class="default-p">Заповніть форму, щоб мати модливість отримати <span class="highlight-green">подарунки</span></p>
         <form action="/" method="POST">
             <div class="login-form">
-                <input type="text" name="name" placeholder="Прізвище та ім'я">
-                <input type="tel" name="phone" placeholder="Номер телефону">
+                {{ form.hidden_tag() }}
+
+                {{ form.name(placeholder="Призвіще Ім'я") }}
+                {{ form.phone(placeholder="Номер телефону") }}
+
                 {% if error_message %}
                     <p class="error-message">{{ error_message }}</p>
                 {% endif %}
                 <div class="login-buttons">
-                    <button type="submit">ПІДТВЕРДИТИ</button>
+                    {{ form.submit }}
                 </div>
             </div>
         </form>

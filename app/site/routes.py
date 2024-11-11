@@ -1,16 +1,21 @@
 from flask import Blueprint, render_template, request, redirect, url_for
+import asyncio
+
 from app import db
 from app.site.models import Contact
+from app.site.forms import RegisterForm, ThankForm
 from app.bot.telegram_bot import send_message
-import asyncio
+
 
 main = Blueprint('main', __name__)
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
+    form = RegisterForm()
     error_message = None
 
-    if request.method == 'POST':
+
+    if form.validate_on_submit():
         name = request.form['name']
         phone = request.form['phone']
 
@@ -32,11 +37,13 @@ def index():
 
                 return redirect(url_for('main.thank_you'))
 
-    return render_template('index.html', error_message=error_message)
+    return render_template('index.html', error_message=error_message, form=form)
 
 @main.route('/thank-you', methods=['GET', 'POST'])
 def thank_you():
-    if request.method == 'POST':
+    form = ThankForm()
+
+    if form.validate_on_submit():
         return redirect("https://t.me/Farmasi_official_bot")
 
-    return render_template('subscription.html')
+    return render_template('subscription.html', form=form)
