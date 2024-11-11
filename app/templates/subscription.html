@@ -11,9 +11,10 @@
         <h1>ПІДПИСАТИСЯ НА РОЗСИЛКУ</h1>
         <p class="small-p">Підпишіться на нашу розсилку, щоб отримувати актуальні новини та пропозиції.</p>
         <form action="/thank-you" method="POST">
+            {{ form.hidden_tag() }}
             <div class="login-form-subscription">
                 <div class="login-buttons-subscription">
-                    <button type="submit">ПІДПИСАТИСЯ НА РОЗСИЛКУ</button>
+                    {{ form.submit }}
                 </div>
             </div>
         </form>

@@ -126,7 +126,7 @@ ul li {
     padding: 0 2.0em;
 }
 
-.login-buttons button {
+.login-buttons input[type='submit'] {
     padding: 10px 30px;
     font-size: 1.2em;
     border: none;
@@ -134,15 +134,15 @@ ul li {
     background-color: #85a283;
     color: white;
     cursor: pointer;
-    width: 100%;
+    width: auto;
     box-sizing: border-box;
 }
 
-.login-buttons button:hover {
+.login-buttons input:hover {
     background-color: #65a268;
 }
 
-.login-buttons-subscription button {
+.login-buttons-subscription input {
     padding: 10px;
     margin: 8px;
     font-size: 1.2em;
