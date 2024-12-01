@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - SECRET_KEY=QWERTYqwerty
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+
+  db:
+    image: nouchka/sqlite3:latest
+    environment:
+      - SQLITE_DATABASE=database.db
+    volumes:
+      - db_data:/data
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    depends_on:
+      - web
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+
+volumes:
+  db_data:
